@@ -1,0 +1,179 @@
+java fundamentals 
+
+JDBC + MYSQL  : CRUD Operations
+
+C : create 
+R : Read 
+U : Update
+D : Delete 
+
+JDBC: Java Database connectivity 
+
+JDBC + MYSQL  : CRUD Operations
+---------------------------------
+1. eclipse : env (install)
+2. JDBC Connector (download) MYSQL Connector (browser)
+
+    after download zip file -> unzip file 
+    open folder check weather JDBC jar file is available or not 
+
+3. add MYSQL connector for eclipse (JDBC)
+
+4. install MYSQL software in your OS 
+
+5. from cmd command line (create a  database and create table)
+
+How to attach MYSQL Connector (JDBC) for eclipse 
+-------------------------------------------------
+1. open eclipse create a new java project , give a name 
+
+2. open project -> right click on src folder -> create a package ,name it (MyFiles)
+
+3. Right click on package -> craete a new java class (name it) CRUD_sample
+
+4. write a print statement in side java class and run file 
+
+5. right click on java project -> build path -> configure build path 
+
+5. inside -> select libraries -> select modulepath -> click on add external jars 
+
+6. open up your downloaded jar  file path 
+
+7. download MYSQL and install  
+
+
+Source :
+---------
+
+package JDBC;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class StudentCRUD {
+
+    private static final String URL = "jdbc:mysql://localhost:3306/testdb";
+    static final String USER = "root";
+    static final String PASS = "root@123"; 
+
+    public static void main(String[] args) {
+    	
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+            Scanner scanner = new Scanner(System.in);
+            int choice;
+
+            do {
+                System.out.println("\n--- Student Management ---");
+                System.out.println("1. Add Student");
+                System.out.println("2. View Students");
+                System.out.println("3. Update Student");
+                System.out.println("4. Delete Student");
+                System.out.println("0. Exit");
+                System.out.print("Enter choice: ");
+                choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1 -> addStudent(conn, scanner);
+                    case 2 -> viewStudents(conn);
+                    case 3 -> updateStudent(conn, scanner);
+                    case 4 -> deleteStudent(conn, scanner);
+                }
+            } while (choice != 0);
+
+            System.out.println("Program Ended.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void addStudent(Connection conn, Scanner scanner) throws SQLException {
+        System.out.print("Enter Name: ");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        System.out.print("Enter Age: ");
+        int age = scanner.nextInt();
+        System.out.print("Enter Grade: ");
+        scanner.nextLine();
+        String grade = scanner.nextLine();
+
+        String sql = "INSERT INTO students (name, age, grade) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setInt(2, age);
+            stmt.setString(3, grade);
+            int rows = stmt.executeUpdate();
+            System.out.println(rows + " student added.");
+        }
+    }
+
+    private static void viewStudents(Connection conn) throws SQLException {
+        String sql = "SELECT * FROM students";
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            System.out.println("\n--- Student Records ---");
+            while (rs.next()) {
+                System.out.printf("ID: %d | Name: %s | Age: %d | Grade: %s%n",
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("age"),
+                        rs.getString("grade"));
+            }
+        }
+    }
+
+    private static void updateStudent(Connection conn, Scanner scanner) throws SQLException {
+        System.out.print("Enter Student ID to update: ");
+        int id = scanner.nextInt();
+        System.out.print("New Name: ");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        System.out.print("New Age: ");
+        int age = scanner.nextInt();
+        System.out.print("New Grade: ");
+        scanner.nextLine();
+        String grade = scanner.nextLine();
+
+        String sql = "UPDATE students SET name=?, age=?, grade=? WHERE id=?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setInt(2, age);
+            stmt.setString(3, grade);
+            stmt.setInt(4, id);
+            int rows = stmt.executeUpdate();
+            System.out.println(rows + " record updated.");
+        }
+    }
+
+    private static void deleteStudent(Connection conn, Scanner scanner) throws SQLException {
+        System.out.print("Enter Student ID to delete: ");
+        int id = scanner.nextInt();
+
+        String sql = "DELETE FROM students WHERE id=?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            int rows = stmt.executeUpdate();
+            System.out.println(rows + " record deleted.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
