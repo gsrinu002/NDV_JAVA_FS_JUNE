@@ -1,0 +1,51 @@
+UI technologies 
+--------------------- HTML ,CSS & Javascript 
+
+HTML : design web pages 
+CSS  : decorate web pages 
+
+
+Java script 
+------------- : giving functionlity for web application 
+
+react / angular /vue js 
+
+Node JS 
+---------  : server api creations  + mondo DB 
+
+install node 
+www.nodejs.org  -> download software and install in your operating system 
+after installation check the version of node 
+
+cmd line -> node -v 
+cmd line -> npm -v 
+
+React JS 
+---------  React is open source front end library for creating dynamic ,modren web appls
+create react project by fallowing steps 
+
+note : before creating react project node installation is needed 
+
+->cmd : choose path desktop
+
+->npx create-react-app hello 
+
+note : project name should start with small letters only 
+
+-> cd hello  
+
+-> npm start 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

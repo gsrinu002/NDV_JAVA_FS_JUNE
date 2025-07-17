@@ -1,0 +1,20 @@
+Spring 
+-------
+
+got to browser -> search for spring intilizer 
+
+provide a name for project : attach recommended dependecies 
+
+-> download zip file 
+
+-> un zip folder 
+
+-> open eclipse -> import -> import -> maven project 
+
+-> choose ur downloaded path 
+
+-> finish 
+
+-> open src/main/java -> find main java file 
+
+here u can do some changes and run spring application.. 

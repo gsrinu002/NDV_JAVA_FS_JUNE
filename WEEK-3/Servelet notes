@@ -1,0 +1,117 @@
+JAVA SE 
+--------
+core java fundamentals 
+JDBC ( java Data base connection)
+
+JAVA EE 
+--------------
+ JAVA EE is java enterprise edition which is going to be using for different kind of application devlopment 
+
+ -> web applications 
+ -> Enterpise applications 
+ -> Distributed applications 
+ -> Messaging systems 
+ -> Data base Integrations 
+
+ (Project - week 3) : Online feeback form web application 
+
+ HTML , CSS 
+ APIS  
+ Servelets (ARC)
+ TOmcat server 
+
+Servelets 
+---------------- 
+servelet is a class extending HTTPServelet 
+it can able to handle client req from browser . 
+generate dynamic responses (like HTML) from servers 
+
+servelet lifecycle 
+----------------------
+public void init()  : initilialization (called once)
+
+public void doGet() : Hanldes the GET request 
+
+public void doPost() : Handles POST request 
+
+public void destroy() : Cleaning up code (called once)
+
+
+Steps for servelet application 
+----------------------------------
+1.install Eclipse 
+
+2.install Apche Tomcat server 
+
+3.Configure Tomcat in Eclipse 
+
+4.Create Dynamic web project 
+
+5.Create a servelet 
+
+
+
+JAVA EE (servelet project creation )
+--------------------------------------
+
+
+1. open eclipse ->  help -> install new software -> drop down -> select eclipse (off url) 
+
+-> WEB XML section -> check checkmark -> install only JAVA EE (servelet)
+
+automatially after installation -> eclipse will restart 
+
+2. open eclipse -> help -> eclipse marketplace -> JAVA EE 
+
+automatially after installation -> eclipse will restart 
+
+
+install tomcat server : java compatible server to lanuch web projects 
+
+open browser ->  https://tomcat.apache.org/download-10.cgi 
+
+choose ur OS -> based on the download latest version 
+
+
+create -> new -> web project -> give name 
+
+create new package : ndv  
+
+under the package -> right click create a sevelet ->  
+
+right click on project -> run on server -> attach server -> browser will open .. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

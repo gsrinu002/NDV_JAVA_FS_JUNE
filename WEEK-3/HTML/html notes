@@ -1,0 +1,57 @@
+html 
+------ hypertext markup language 
+
+html is used for design web pages 
+html tags are two types 
+
+1. paired tags 
+2. unpaired tags 
+
+1. paired tags 
+----------------
+
+<opentag>  </closetag> 
+
+ex: 
+----
+<h1> </h1> 
+<p> </p> 
+<form> </form>  
+<table> </table> 
+
+2. unpaired tags 
+--------------------
+
+1. only open  :  <opentag>
+2. only close : </closetag>
+3. self close : <selfclose /> 
+
+CSS 
+------
+cascading style sheets 
+css is using for styling web pages 
+
+color 
+background-color 
+font-styles 
+text-styles 
+box-model 
+selectors 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
